@@ -27,7 +27,7 @@ SECRET_KEY = 'ye*j6l^@8xec5_*o0xvx1g%n@tzns2r^zwt)eayma7b#p&d072'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['africa-disability-alliance.herokuapp.com','127.0.0.1',]
+ALLOWED_HOSTS = ['disability45.herokuapp.com','africa-disability-alliance.herokuapp.com','127.0.0.1',]
 # heroku
 # django_heroku.settings(locals())
 # Application definition
