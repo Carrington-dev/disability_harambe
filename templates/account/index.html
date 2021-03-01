@@ -1,0 +1,190 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+<div class="container-top">
+    <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+				<h3> Contact Us</h3>
+				<h4> +27 012 348 1840</h4>
+				<h2>Africa Disability Alliance</h2>
+				<a class="btn btn-warning btn-lg" style="margin:10px;" href="{% url 'register' %}">Contact Us</a>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="container-welcome">
+    <div class="container">
+		<div class="text-center">
+			<h1>Welcome</h1>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+			<p>The Africa Disability Alliance (ADA) was initially called the Secretariat of the African 
+			Decade of Persons with Disability (SADPD). The organisation’s name was changed with 
+			effect from 11 April 2014. The registration of ADA launches a new phase in the
+			 development and maturity of the organisation as a disability-led technical 
+			 agency deriving its mandate from the human rights movement of organisations of persons
+			  with disabilities that constitute its membership.
+
+			
+			 <br />
+			</p>
+
+			<p>The change was necessitated by the need to communicate the real work/ 
+			mandate of the organisation, to shorten the name and de-link it from a ‘decade’ 
+			timeframe. There was also a need to adopt a name that communicates the fact that the 
+			organisation is an African,  broad-based, continental technical agency that works 
+			through alliances and networks using a broad range of policy tools that 
+			emanate from the United Nations (UN), African Union (AU), Regional Economic 
+			Commissions (RECs) and other jurisdictions.
+
+			
+			 <br />
+			</p>
+
+				<p>The organisation has regional offices in Addis Ababa, Ethiopia responsible 
+				for the East Africa region. Thelocation of the regional office was strategically 
+				chosen after careful review and in order to provide effective communication, programme
+				 infrastructure and logistics. The location also ensure that the organisation is as 
+				 close to the AU/key government structures as possible in order to facilitate efficient management
+				 of resources, policy work, programming, high-level diplomacy and international relations.
+			
+			 <br />
+			</p>
+		</div>
+        <div class="row" style="margin-top: 40px;">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-3">
+						<i class="fa fa-low-vision fa-4x" style="color: #930A0C" aria-hidden="true"></i>
+					</div>
+					<div class="col-md-9">
+						<h3>Our Vision</h3>
+						<p class="text-justify">An African continent where people with disabilities enjoy their human rights.
+						 </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-3">
+						<i class="fa fa-bullseye fa-4x" style="color: #930A0C" aria-hidden="true"></i>
+					</div>
+					<div class="col-md-9">
+						<h3>Our Mission</h3>
+						<p class="text-justify">
+						To be an African knowledge-based organisation that works in
+						 partnership with the AU, UN, African governments,
+						 CSOs, Academia and DPOs to promote inclusive development and 
+						 human rights for persons with disabilities.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-3">
+						<i class="fa fa-umbrella fa-graduation-cap fa-4x" style="color: #930A0C" aria-hidden="true"></i>
+					</div>
+					<div class="col-md-9">
+						<h3>Our Objectives</h3>
+						<p class="text-justify">To generate and utilise evidence Based Knowledge
+									To work through and with partners, networks / alliances
+						 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="container-info">
+    <div class="container">
+        <div class="row text-center">
+			<div class="col-md-6">
+				<div id="chart" style="wight: 100%; height: 100px;"></div>
+				<img class="img-responsive" style=" width:100%; height:100%;"  alt="Our Achievements" src="{% static 'images/ach.jpg' %}" />
+			</div>
+			<div class="col-md-6">
+				<h1>Our Achievements</h1>
+				<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+				<p>
+				The ADA has matured into an essential technical resource for continental/ regional political/economic/social 
+				bodies and structures. A well-established organisation has emerged from the difficult formative phases with 
+				a clear vision and mission.  The organisation has managed to turn around its own operations and its ability 
+				to influence development and implementation of policies in Africa in a manner that has reduced fragmentation
+				 in the disability policy formulation, strategy development and programming processes.
+				
+				</p> <br />
+				<p>
+				ADA has successfully used international diplomacy / relations to solve complex problems faced by persons
+				 with disabilities. This approach has been welcomed as an effective strategy to cause commitment to provide resources 
+				 and implementation of policies and strategies in a manner that benefits persons with disabilities. The organisation 
+				 has implemented a broad range of demand-led programmes and projects that have placed disability at the centre 
+				 of planning, implementation and evaluation strategies at both national and Africa continental level. This 
+				 includes adding value to policy formulation and implementation processes within the African Union (AU) system, 
+				 Regional Economic Committee (RECs) and African governments.
+
+				
+				</p> <br />
+				<h4>
+				
+
+				<a href="{% url 'about' %}">
+					<button class="btn btn-warning btn-lg" type="button" style="margin:10px;">Explore More</button>
+				</a>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="container-testimonials">
+    <div class="container">
+
+        <div>
+			<h1 class="text-center">Testimonials</h1>
+	
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%"> <br />
+	
+			<div class="col-md-4">
+				<img class="img-responsive" style="border-radius:50%; width:150px;" src="{% static 'images/image2.jpg' %}" /> <br />
+		
+				<p class="text-justify">
+				<i class="fa fa-quote-left fa-2x" style="color: #930A0C" aria-hidden="true">
+				</i>&nbsp; It is not every day that you come across a passionate and trustworthy financial advisor.
+				 John Doe is true professional who does his work really well. Thanks John! 
+				 </p>
+				<h4 class="text-success"><i>
+				Angelina Smithson
+				</i></h4>
+			</div>
+			<div class="col-md-4">
+				<img class="img-responsive" style="border-radius:50%; width:150px;" src="{% static 'images/image3.jpg' %}" /> <br />
+				<p class="text-justify">
+				<i class="fa fa-quote-left fa-2x" style="color: #930A0C" aria-hidden="true">
+				</i>&nbsp; It is not every day that you come across a passionate and trustworthy financial 
+				advisor. John Doe is true professional who does his work really well. Thanks John! 
+				</p>
+				<h4 class="text-success"><i>John Doe</i></h4>
+			</div>
+			<div class="col-md-4">
+				<img class="img-responsive" style="border-radius:50%; width:150px;" src="{% static 'images/image2.jpg' %}" /> <br />
+				<p class="text-justify"><i class="fa fa-quote-left fa-2x" style="color: #930A0C" aria-hidden="true">
+				</i>&nbsp; It is not every day that you come across a passionate and trustworthy financial advisor. 
+				John Doe is true professional who does his work really well. Thanks John! 
+				</p>
+				<h4 class="text-success"><i>Carol Harper</i></h4>
+			</div>
+		</div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+

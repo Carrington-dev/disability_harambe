@@ -1,0 +1,299 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+		<style>
+		.model-title {
+		background-color:#930A0C;
+			text-align: middle;
+			padding: 10px;
+			color:#fff;
+			text-size: 14px;
+			border-radius: 10px 
+			}
+
+
+		.long-heading{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			border-radius: 10px
+		}
+
+		.myCustomButton{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			width: 100%;
+			display: block;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.myCustomButton:hover, active{
+			background-color:#930a0c;
+			text-align: left;
+			padding: 10px;
+			width: 100%;
+			display: block;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+		.sub-headings{
+			background-color:#23930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#930A0C;
+			border-radius: 10px;
+			font-size: 15px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-style: oblique;
+		}
+
+		.text-div  {
+			background-color: #ffb3b3;
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			margin-top: 10px;
+			margin-bottom: 10px
+			
+		}
+		.text-description  {
+			background-color: #fde7e8;
+			border-radius: 10px;
+			padding: 14px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			
+		}
+
+		.text-date-posted  {
+			
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 700;
+			font-size: 14px;
+			margin:0px;
+			
+		}
+
+		
+		.ratings  {
+			background-color: #930A0C;
+			border-radius: 10px;
+			padding: 12px;
+			color: #fff;
+			font-weight: 400;
+			font-size: 14px;
+			text-align: center;
+			margin: 10px;
+
+		}
+		.myCustomImages  {
+			border-radius:10px !important;
+			margin-bottom:10px;
+
+		}
+		.accordion {
+						background-color: #ffb3b3;
+						color: #000;
+						cursor: pointer;
+						padding: 18px;
+						width: 100%;
+						text-align: left;
+						border: none;
+						outline: none;
+						transition: 0.4s;
+						text-size: 16px;
+						}
+
+						/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+						.active, .accordion:hover {
+						background-color: #fde7e8;
+						}
+
+						/* Style the accordion panel. Note: hidden by default */
+						.panel {
+						padding: 0 18px;
+						background-color: white;
+						display: none;
+						overflow: hidden;
+						}
+
+						.myAccButton{
+							text-size:16px;
+						}
+		</style>
+    
+<div class="container-planning">
+    <div class="container">
+		<div class="text-center">
+			<h1 class="model-title">{{course.title}}</h1>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+
+			<div class="col-md-12">
+				<img class="myCustomImages" src="{{course.image.url}}" class="img-responsive" style="height:400px; width:100%"  alt="{{course.title}}">
+				
+				
+				<p class="text-description">
+					{{course.description}}
+				</p>
+				<h5 class="text-date-posted">Author: <i>{{course.author.first_name}} {{course.author.last_name}},</i> Date Posted: <i>{{course.date_created}}</i></h5>
+				<h6 class="btn ratings" >Average Ratings {{course.rate}}</h6>
+                   
+                
+				
+                   <br>
+                	
+
+				{% for module in modules %}
+				  {% if module.course.id == course.id  %} 
+
+					<button class="accordion"><h5 class="myAccButton">{{module.order}}. {{module.title}}</h5></button>
+					
+					
+					<div class="panel">
+								<p class="text-div">{{module.description}}</p><br><br>
+
+								<h4 class="long-heading"><b>VIDEOS</b></h4>
+								 {% for video in videos %}
+										{% if video.module.id == module.id  %} 
+												<h6 class="sub-headings">{{video.title|truncatewords:"10"}}</h6>
+												<div class="embed-responsive embed-responsive-16by9 video-container">
+												<iframe class="embed-responsive-item " width="560" height="315" 
+												src="{{video.url}}" frameborder="0" allow="accelerometer; autoplay;
+												clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+												</div>
+										{% endif %}
+								{% endfor %} 
+								<br>
+
+								<h4 class="long-heading"><b>NOTES</b></h4>
+								{% for text in texts %}
+									{% if text.module.id == module.id  %} 
+										<h6 class="sub-headings">{{text.title|truncatewords:"10"}}</h6>
+										<p class="text-div">{{text.content}}</p>
+									 {% endif %} 
+								{% endfor %}
+								<br>
+
+
+								<h4 class="long-heading"><b>DOWNLOADABLE FILES</b></h4>
+								{% for file in files %}
+									 {% if file.module.id == module.id  %} 
+									<h6 class="sub-headings" >{{file.title|truncatewords:"10"}}</h6>
+									<a href="{{file.document.url}}"><button type="button" class="btn myCustomButton pull-center">
+										<i class="fa fa-download" aria-hidden="true"></i>  Download {{file.title}}</button></a><br>
+									 {% endif %} 
+								{% endfor %}
+								<br>
+
+								<h4 class="long-heading"><b>IMAGES</b></h4>
+									{% for image in images %}
+										{% if image.module.id == module.id  %} 
+											<h6 class="sub-headings">{{image.title|truncatewords:"10"}}</h6>
+											<img src="{{image.document.url}}" class="img-responsive myCustomImages"
+											style="height:400px; width:100%"  alt="{{image.title}}">
+										{% endif %}
+									{% endfor %}
+					</div>
+				<div class="clearfix"></div>
+				  {% endif %} 
+		{% endfor %}
+		
+				<div class="clearfix"></div>
+					
+			</div>
+		</div>
+    </div>
+	
+</div> 
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+{% endblock content %}
+
+
+	{% for video in videos %}
+				  {% if video.post.id == post.id  %} 
+
+					<button class="accordion">{{video.title}}</button>
+					
+					
+					<div class="panel">
+								<p>{{post.description}}</p>
+									<h2 >VIDEOS</h2><br>
+
+								 {% for video in videos %}
+									 {% if video.module.id == module.id  %}  
+									<h4 class="sub-headings">{{video.title}}</h4><br>
+									<div class="embed-responsive embed-responsive-16by9 video-container">
+									<iframe class="embed-responsive-item " width="560" height="315" src="{{video.url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									{% endif %} 
+								{% endfor %} 
+									<br><br>
+										<h2 >NOTES</h2><br>
+									
+								{% for text in texts %}
+									{% if text.module.id == module.id %} 
+									<h4 class="sub-headings">{{text.title}}</h4><br>
+									<p>{{text.content}}</p>
+									 {% endif %} 
+								{% endfor %}
+									<br> 	<h2 >DOWNLOADABLE FILES</h2><br>
+								{% for file in files %}
+									 {% if file.module.id == module.id  %} 
+										<h4 class="sub-headings">{{file.title}}</h4><br>
+										<a href="{{file.document.url}}"><button type="button" class="btn btn-outline-success btn-sm">
+										<i class="fa fa-download" aria-hidden="true"></i>  Download {{file.title}}</button></a><br>
+									 {% endif %} 
+								{% endfor %}
+									<br> 	<h2 >IMAGES</h2><br>
+								{% for image in images %}
+									 {% if image.module.id == module.id  %} 
+									<h4 class="sub-headings">{{image.title}}<h4>
+									
+									<img src="{{image.image.url}}" class="img-responsive" style="height:400px; width:100%"  alt="{{image.title}}">
+									 {% endif %} 
+									<br>
+								{% endfor %}
+					</div>
+					
+				
+
+					
+						
+
+
+
+				{% comment %} <button class="btn btn-warning btn-lg pull-right" style="margin:10px;">More Info</button> {% endcomment %}
+				<div class="clearfix"></div>
+				  {% endif %} 
+		{% endfor %}
+		

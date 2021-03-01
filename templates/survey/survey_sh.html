@@ -1,0 +1,114 @@
+{% extends 'includes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    #myRow{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    #RefreshButton{
+        float:right;
+    }
+
+    
+		.myCustomButton{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			display: block;
+            margin-right: 30px;
+            margin-left: 30px;
+            outline: none;
+            border: 0;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    #RefreshButton{
+			background-color:#2195F8;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			outline:none ;
+            margin-right: 30px;
+            margin-left: 30px;
+			outline:none;
+            border: 0;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    #RefreshButton:hover, active{
+			background-color:#066cc6;
+			text-align: left;
+			padding: 10px;
+            outline:none;
+            border: 0;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+
+		.myCustomButton:hover, active{
+			background-color:#930a0c;
+			text-align: left;
+			padding: 10px;
+            outline: none;
+            border: 0;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+        .my-row{
+            text-align:center;
+            /*the same margin which is every button have, it is for small screen, and if you have many buttons.*/
+            {% comment %} margin-left:-20px;
+            marin-right:-20px; {% endcomment %}
+
+        }
+        .cont{
+            background-color:#F6F6F6;
+        }
+
+        .app-button{
+        {% comment %} background-color: #01AAAD; {% endcomment %}
+       
+        {% comment %} margin:0 20px; {% endcomment %}
+        display:inline-block;
+        {% comment %} line-height: 60px; {% endcomment %}
+}
+</style>
+<div class="container cont">
+
+    <div class="row" id="myRow">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+         <h1>2.	Other stakeholders (government representatives, institutional representatives, care givers and other relevant stakeholders)</h1>
+            <hr style="border-color:#930A0C; border-width: 1px" width="100%">
+            <p>Research meets ethical standards and all information from participants is solely used for the purposes of this research and is kept confidential.  </p>
+            <hr style="border-color:#930A0C; border-width: 1px" width="100%">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+         
+                <div class="my-row">
+                    <button type="submit" class="btn btn-primary  app-button  myCustomButton">Submit</button>
+                    <a  href="{% url 'survey-sh' %}" class="btn btn-primary app-button" id="RefreshButton">Refresh</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+  </div>
+{% endblock %}
