@@ -1,0 +1,315 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+	<style>
+	.model-title {
+		background-color:#930A0C;
+			text-align: middle;
+			padding: 10px;
+			color:#fff;
+			text-size: 12px;
+			border-radius: 10px
+	}
+
+	.long-heading{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			border-radius: 10px
+		}
+
+		.myCustomButton{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			width: 100%;
+			display: block;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.myCustomButton:hover, active{
+			background-color:#930a0c;
+			text-align: left;
+			padding: 10px;
+			width: 100%;
+			display: block;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+		.sub-headings{
+			background-color:#23930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#930A0C;
+			border-radius: 10px;
+			font-size: 15px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-style: oblique;
+		}
+
+		.text-div  {
+			background-color: #ffb3b3;
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			margin-top: 10px;
+			margin-bottom: 10px
+			
+		}
+		.text-description  {
+			background-color: #fde7e8;
+			border-radius: 10px;
+			padding: 14px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			
+		}
+
+		.text-date-posted  {
+			
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 700;
+			font-size: 14px;
+			margin:0px;
+			
+		}
+
+		
+		.ratings  {
+			background-color: #930A0C;
+			border-radius: 10px;
+			padding: 12px;
+			color: #fff;
+			font-weight: 400;
+			font-size: 14px;
+			text-align: center;
+			margin: 10px;
+
+		}
+		.myCustomImages  {
+			border-radius:10px !important;
+			margin-bottom:10px;
+
+		}
+
+
+
+		.accordion {
+						background-color: #ffb3b3;
+						color: #000;
+						cursor: pointer;
+						padding: 18px;
+						width: 100%;
+						text-align: left;
+						border: none;
+						outline: none;
+						transition: 0.4s;
+						text-size: 16px;
+						}
+
+						/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+						.active, .accordion:hover {
+						background-color: #fde7e8;
+						}
+
+						/* Style the accordion panel. Note: hidden by default */
+						.panel {
+						padding: 0 18px;
+						background-color: white;
+						display: none;
+						overflow: hidden;
+						}
+
+						.myAccButton{
+							text-size:16px;
+						}
+		</style>
+    
+<div class="container-planning">
+    <div class="container">
+		<div class="text-center">
+			<h1 class="model-title">{{post.title}}</h1>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+
+			<div class="col-md-12">
+			{% comment %} <div class="embed-responsive embed-responsive-16by9 video-container"> {% endcomment %}
+				<img class="myCustomImages" src="{{post.thumbnail.url}}" style="height:400px; width:100%" 
+				 class="img-responsive"  alt="{{post.title}}">
+			{% comment %} </div> {% endcomment %}
+			<h4 class="text-date-posted">Posted by {{post.author.first_name}} {{post.author.last_name}} on {{post.date_posted}}</h4>
+			<p class="text-description">{{post.content}}</p>     
+                <br>
+				
+				{% comment %} {% for video in videos %}
+				  {% if video.post.id == post.id  %} 
+
+					<button class="accordion"><h5 class="myAccButton">{{video.title}}<h5></button>
+					
+					
+					<div class="panel">
+								<p>{{post.description}}</p>
+								
+								<h4 class="long-heading">VIDEOS</h4>
+								 {% for video in videos %}
+									 {% if video.post.id == post.id  %}  
+									<h6  class="sub-headings">{{video.title}}</h6>
+									<div class="embed-responsive embed-responsive-16by9 video-container">
+									<iframe class="embed-responsive-item " width="560" height="315" src="{{video.url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									{% endif %} 
+								{% endfor %} 
+									<br><br>
+								<h4 class="long-heading" >NOTES</h4>
+								{% for text in texts %}
+									{% if text.post.id == post.id %} 
+									<h6 class="sub-headings">{{text.title}}</h6>
+									<p class="text-div">{{text.content}}</p>
+									 {% endif %} 
+								{% endfor %}
+									<br> 	
+								<h4 class="long-heading" >DOWNLOADABLE FILES</h4>
+								{% for file in files %}
+									 {% if file.post.id == post.id  %} 
+										<h6 class="sub-headings">{{file.title}}</h6>
+										<a href="{{file.document.url}}"><button type="button" class="btn myCustomButton pull-center">
+										<i class="fa fa-download" aria-hidden="true"></i>  Download {{file.title}}</button></a>
+									 {% endif %} 
+								{% endfor %}
+									<br> 	
+								<h4 class="long-heading" >IMAGES</h4>
+								{% for image in images %}
+									 {% if image.post.id == post.id  %} 
+									<h6 class="sub-headings">{{image.title}}<h6>
+									<div class="embed-responsive embed-responsive-16by9 video-container">
+									<img src="{{image.image.url}}" class="img-responsive" style="height:400px; width:100%"  alt="{{image.title}}">
+									 </div>
+									 {% endif %} 
+									<br>
+								{% endfor %}
+					</div>
+					
+				
+
+					
+						
+
+
+
+				
+				<div class="clearfix"></div>
+				  {% endif %} 
+		{% endfor %}
+		 {% endcomment %}
+
+					
+					<button class="accordion"><h5 class="myAccButton">{{post.title}} Notes<h5></button>
+					{% for text in texts %}
+						{% if text.post.id == post.id  %} 
+						<div class="panel">
+									{% comment %} <p>{{post.description}}</p> {% endcomment %}
+									<h4 class="long-heading" >NOTES</h4>
+									{% for text in texts %}
+										{% if text.post.id == post.id %} 
+											<h6 class="sub-headings">{{text.title}}</h6>
+											<p class="text-div">{{text.content}}</p>
+										{% endif %} 
+									{% endfor %}
+									<br> 	
+						</div>
+					{% endif %} 
+				{% endfor %}
+				<button class="accordion"><h5 class="myAccButton">{{post.title}} Videos<h5></button>
+					{% for video in videos %}
+						{% if video.post.id == post.id  %} 
+						<div class="panel">
+									{% comment %} <p>{{post.description}}</p> {% endcomment %}
+									<h4 class="long-heading" >VIDEOS</h4>
+									{% for video in videos %}
+										{% if video.post.id == post.id %} 
+										<h6  class="sub-headings">{{video.title}}</h6>
+										<div class="embed-responsive embed-responsive-16by9 video-container">
+										<iframe class="embed-responsive-item " width="560" height="315" src="{{video.url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+										{% endif %} 
+									{% endfor %}
+									<br> 	
+						</div>
+					{% endif %} 
+				{% endfor %}
+				<button class="accordion"><h5 class="myAccButton">{{post.title}} Downloadables<h5></button>
+					{% for text in texts %}
+						{% if text.post.id == post.id  %} 
+						<div class="panel">
+									{% comment %} <p>{{post.description}}</p> {% endcomment %}
+									<h4 class="long-heading" >DOWNLOADABLES</h4>
+									{% for file in files %}
+										{% if file.post.id == post.id %} 
+										<h6 class="sub-headings">{{file.title}}</h6>
+										<a href="{{file.document.url}}"><button type="button" class="btn myCustomButton pull-center">
+										<i class="fa fa-download" aria-hidden="true"></i>  Download {{file.title}}</button></a>
+										{% endif %} 
+									{% endfor %}
+									<br> 	
+						</div>
+					{% endif %} 
+				{% endfor %}
+				<button class="accordion"><h5 class="myAccButton">{{post.title}} Images<h5></button>
+					{% for image in images %}
+						{% if image.post.id == image.id  %}
+						<div class="panel">
+									{% comment %} <p>{{post.description}}</p> {% endcomment %}
+									<h4 class="long-heading" >Images</h4>
+									{% for text in texts %}
+										{% if image.post.id == post.id %} 
+										<h6 class="sub-headings">{{image.title}}<h6>
+										<div class="embed-responsive embed-responsive-16by9 video-container">
+											<img src="{{image.image.url}}" class="img-responsive" style="height:400px; width:100%"  alt="{{image.title}}">
+										</div>
+										{% endif %} 
+									{% endfor %}
+									<br> 	
+						</div>
+					{% endif %} 
+				{% endfor %}
+				
+		
+				<div class="clearfix"></div>
+
+			</div>
+		</div>
+    </div>
+</div> 
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
+{% endblock content %}

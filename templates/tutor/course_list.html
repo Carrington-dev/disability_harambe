@@ -1,0 +1,257 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+
+    .myThumbnail{
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+    }
+    .nav ul li a .page-item .active{
+        background:#fff !important;
+        
+    }
+    <style>
+    .my_Row{
+        padding: 20vh;
+        background-color: transparent;
+        width: 100%;
+        height: 60vh;
+    }
+    h4{
+        color: #000;
+        
+    }
+    h6{
+        color: #4dff4d;
+    }
+
+    .myCustomButton{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    ..myCustomButton:hover, active{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    .my_Row{
+        padding: 20vh;
+        background-color: transparent;
+        width: 100%;
+        height: 80vh;
+    }
+    h4{
+        color: #000;
+        font-size: 40px;
+        
+    }
+    h6{
+        color: #4dff4d;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .myCustomButton{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    ..myCustomButton:hover, active{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+    
+    .description{
+        background-color: transparent;
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			margin-top: -10px;
+			margin-bottom: 10px
+    }
+
+    .title-author {
+        background-color:#transparent;
+			text-align: middle;
+            
+			color:#000;
+			border-radius: 10px;
+			font-size: 10px;
+			font-weight: bold;
+			
+    }
+    .title-course {
+        background-color:#transparent;
+			text-align: middle;
+            margin: 2px;
+			color:#930A0C;
+			border-radius: 10px;
+			font-size: 15px;
+			font-weight: bold;
+			
+    }
+    .checked {
+        color: orange;
+        align: middle;
+        }
+
+    .course {
+        outline: 1px solid 
+        padding: 5px;
+        border-radius: 2%;
+        margin: 10px;
+    }
+
+    .page-item-1 {
+        color: #930A0C !important;
+        background: transparent;
+    }
+
+</style>
+
+<div class="container-help" style="align:middle;">
+    <div class="container" style="align:middle;">
+    {% if course %}
+		<div class="text-center">
+			<h1 >Enrol in any course</h1>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+    {% else %}
+        <div class="container my_Row">
+		<div class="text-center">
+			<h4 class="mb-3 text-center">No Course Available</h4>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+        <div class="row text-center">
+            <div class="col-md-2">
+            </div>
+			<div class="col-md-8 text-center">
+                        
+					    <h6>There is no course available at the moment. Feel free to come back later.</h6>
+
+                        {% if request.user.is_authenticated %}
+                        <a class="btn myCustomButton" href="{% url 'logout' %}">
+					      Logout Now
+					    </a>
+                        {% endif %}
+					 
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>	
+	</div>
+    {% endif %}
+      <div class="row center  text-center ">
+            {% for course in courses %}
+            <a href="{% url 'course-detail' course.id %}">
+                <div class="col-md-3  course">
+                
+                    <img class="myThumbnail" src="{{course.image.url}}" alt="{{course.title}}">
+                    
+                    <h3 class="title-course">{{course.title|truncatewords:"4"}}</h3>
+                    <p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-full checked "></span>
+                    ({{course.rate}})
+                    <p>
+                    <p class="title-author">{{course.author.first_name}} {{course.author.last_name}}</p>
+          
+              </div>
+               </a>
+            {% endfor %}
+
+               
+		</div>
+    <div class="row text-center ">
+                <nav aria-label="...">
+                  <ul class="pagination pagination-lg">
+                      {% if page_obj.has_previous %}
+                            
+                            
+
+
+                            <li class="page-item-1 " aria-current="page">
+                            <a href="?page=1" style="color:#930A0C !important; ">
+                              <span class="page-link"> 1</span>
+                              </a>
+                            </li>
+                            <li class="page-item-1 " style="color:#930A0C !important;" aria-current="page">
+                            <a href="?page={{ page_obj.previous_page_number }}" style="color:#930A0C !important; ">&laquo; </a>
+                            </li>
+                        {% endif %}
+                        <li style="color:#fff !important; background-color:#930A0C " class="page-item-1 " aria-current="page">
+                        <span class="current">
+                            {{ page_obj.number }}
+                        </span>
+                        </li>
+
+                        
+                        {% if page_obj.has_next %}
+                        <li style="color:#930A0C !important; " class="page-item-1 " aria-current="page">
+                            <a style="color:#930A0C !important; " class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        </li>
+                        <li class="page-item-1 " aria-current="page">
+                            <a style="color:#930A0C !important; " class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
+                            {{ page_obj.paginator.num_pages }}
+                             </a>
+                        </li>
+                        {% endif %}
+                  
+                    
+                  </ul>
+              </nav>
+        
+
+    </div>
+    
+    
+</div>
+
+
+
+
+{% endblock content %}

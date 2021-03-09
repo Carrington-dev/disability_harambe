@@ -1,0 +1,433 @@
+{% extends 'includes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<style>
+
+		.model-title {
+		background-color:#930A0C;
+			text-align: middle;
+			padding: 10px;
+			color:#fff;
+			text-size: 14px;
+			border-radius: 10px 
+			}
+
+
+		.long-heading{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			border-radius: 10px
+		}
+
+		.myCustomButton{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			width: 80%;
+			display: block;
+      margin-right: 30px;
+      margin-left: 30px;
+      outline: none;
+      border: 0;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    .myCustomButtonBlue{
+			background-color:#2195F8;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			width: 90%;
+      margin-right: 30px;
+      margin-left: 30px;
+      outline: none;
+      border: 0;
+			display: block;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    .myCustomButtonBlue:hover, active{
+			background-color:##066cc6;
+			text-align: left;
+			padding: 10px;
+			width: 90%;
+      outline: none;
+      border: 0;
+			display: block;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+
+		.myCustomButton:hover, active{
+			background-color:#930a0c;
+			text-align: left;
+			padding: 5px;
+			width: 80%;
+      outline: none;
+      border: 0;
+			display: block;
+			text-align: center;
+			color:#fff;
+			border-radius: 10px;
+		}
+		.sub-headings{
+			background-color:#23930A0C;
+			text-align: center;
+			padding: 10px;
+			color:#930A0C;
+			border-radius: 10px;
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-style: oblique;
+		}
+
+		.text-div  {
+			background-color: #ffb3b3;
+			border-radius: 10px;
+			padding: 5px; 
+			color: #000;
+      text-align: center;
+			font-weight: 400;
+			font-size: 10px;
+      align:middle;
+      display: block;
+      text-align: center;
+      border: 3px solid red;
+			width:80%;
+      margin: auto;
+			
+		}
+		.text-description  {
+			background-color: #fde7e8;
+			border-radius: 10px;
+			padding: 14px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			
+		}
+
+		.text-date-posted  {
+			
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 700;
+			font-size: 14px;
+			margin:0px;
+			
+		}
+
+		
+		.ratings  {
+			background-color: #930A0C;
+			border-radius: 10px;
+			padding: 12px;
+			color: #fff;
+			font-weight: 400;
+			font-size: 14px;
+			text-align: center;
+			margin: 10px;
+
+		}
+		.myCustomImages  {
+			border-radius:10px !important;
+			margin-bottom:10px;
+
+		}
+		.accordion {
+						background-color: #ffb3b3;
+						color: #000;
+						cursor: pointer;
+						padding: 18px;
+						width: 100%;
+						text-align: left;
+						border: none;
+						outline: none;
+						transition: 0.4s;
+						text-size: 16px;
+						}
+
+						/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+						.active, .accordion:hover {
+						background-color: #fde7e8;
+						}
+
+						/* Style the accordion panel. Note: hidden by default */
+						.panel {
+						padding: 0 18px;
+						background-color: white;
+						display: none;
+						overflow: hidden;
+						}
+
+						.myAccButton{
+							text-size:16px;
+						}
+	
+
+dy{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+</style>
+
+<div class="container">
+    <div class="main-body">
+
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'profile' %}">User</a></li>
+              <li class="breadcrumb-item active" aria-current="{% url 'profile' %}">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="{{user.profile.image.url}}" style="border-radius:50%; width:150px; height:150px;" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{user.first_name}} {{user.last_name}}</h4>
+                      <p class="text-secondary mb-1">{{user.email}}</p>
+                      <p class="text-muted font-size-sm">{{user.country}}</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    
+                    <a href="{% url 'password_change' %}"  class="btn btn-success myCustomButtonBlue">Reset Your Password</a>
+
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0 sub-headings">Admin Priviledges</h6>
+                    {% if user.is_admin %}
+                      <span class="text-secondary text-div ">You are an Admin</span>
+                      
+                                            <br><br>
+                      <a href="{% url 'admin:index' %}"  class="btn btn-success myCustomButtonBlue">Go To Admin Panel</a><br>
+                      
+                      <a href="{% url 'report-dd' %}"  class="btn btn-success myCustomButtonBlue">Generate the Main Stakeholders' Report</a><br>
+
+                      <a href="{% url 'report-sh' %}" id="download" class="btn btn-success myCustomButtonBlue">Generate The Other Stakeholders' Report</a><br>
+                      {% comment %} <a href="{% url '' %}"  class="btn btn-success">Generate a report</a> {% endcomment %}
+                    {% else %}
+                      <span class="text-secondary text-div">You are not an Admin</span
+                    {% endif %}
+
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0 sub-headings">Staff Priviledges</h6>
+                    {% if user.is_staff %}
+                      <span class="text-secondary text-div">You are a stuff member</span>
+                      <br>
+                    {% else %}
+                      <span class="text-secondary text-div">You are not a stuff member</span
+                    {% endif %}
+
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0 sub-headings">Instructor Priviledges</h6>
+                    {% if user.is_teacher %}
+                      <span class="text-secondary text-div">You are an Instructor</span>
+                                            <br> <br>
+                      <a href="{% url 'admin:index' %}" class="btn btn-success myCustomButton">Manage Courses</a>
+                    {% else %}
+                      <span class="text-secondary text-div">You are not an Instructor</span
+                    {% endif %}
+
+                  </li>
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0 sub-headings">Student Priviledges</h6>
+                    {% if user.is_student %}
+                      <span class="text-secondary text-div">You are a student</span>
+                                            <br> <br>
+                      <a href="{% url 'courses' %}" class="btn btn-success myCustomButton">Avalaible Courses</a>
+                    {% else %}
+                      <span class="text-secondary text-div">You are not a student</span>
+                      <br>
+                       <a href="{% url 'courses' %}" class="btb btn-success myCustomButton">Enroll Now</a>
+                    {% endif %}
+
+                  </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    
+
+                  </li>
+                </ul>
+
+
+
+
+                 <ul class="list-group list-group-flush">
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    
+                    <a href="{% url 'courses' %}" class="btn btn-info myCustomButtonBlue">Enroll in a Course</a>
+                    <br>
+                    <br>
+                    <a href="{% url 'surveys' %}" class="btn btn-info myCustomButtonBlue">Take A Survey</a>
+                    <br>
+                   
+                    <br>
+
+                  </li>
+
+
+                </ul>
+
+                 
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.first_name}}
+                    </div>
+                  </div>
+                  <hr>
+                     <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Surname</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.last_name}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{user.phone}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Disability</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.disability}}
+                    </div>
+                  </div>
+                    <hr>
+
+
+                  <div class="mb-3">
+                    <small  style="color:red" class="form-label">{{message}}</small>
+                  </div>
+                  <form enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    
+                 
+                      {{ u_form|crispy }}
+                      {{ p_form|crispy }}
+
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary myCustomButton" type="submit">Update Profile</button>
+                 </div>
+
+                 </form>
+
+                </div>
+              </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}
+

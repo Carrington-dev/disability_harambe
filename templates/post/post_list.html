@@ -1,0 +1,269 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.my_Row{
+        padding: 20vh;
+        background-color: transparent;
+        width: 100%;
+        height: 60vh;
+    }
+   
+
+    h4{
+        color: #000;
+        font-size: 40px;
+        
+    }
+    h6{
+        color: #4dff4d;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .myCustomButton{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    .myCustomButton:hover, active{
+			background-color:#d70f12;
+			text-align: left;
+			padding: 5px;
+			color:#fff;
+			float:center;
+			
+            margin-right: 30px;
+            margin-left: 30px;
+			border-radius: 10px;
+			text-align: center;
+			text-transform: capitilize;
+		}
+
+    .myThumbnail{
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+    }
+    .nav ul li a .page-item .active{
+        background:#fff !important;
+        
+    }
+    .description{
+        background-color: transparent;
+			border-radius: 10px;
+			padding: 12px;
+			color: #000;
+			font-weight: 400;
+			font-size: 11px;
+			margin-top: -10px;
+			margin-bottom: 10px
+    }
+
+    .title-author {
+        background-color:#transparent;
+			text-align: middle;
+            
+			color:#000;
+			border-radius: 10px;
+			font-size: 10px;
+			font-weight: bold;
+			
+    }
+    .title-course {
+        background-color:#transparent;
+			text-align: middle;
+            margin: 2px;
+			color:#930A0C;
+			border-radius: 10px;
+			font-size: 15px;
+			font-weight: bold;
+			
+    }
+    .checked {
+        color: orange;
+        align: middle;
+        }
+
+    .course {
+        outline: 1px solid 
+        padding: 5px;
+        border-radius: 2%;
+        margin: 10px;
+    }
+
+    .page-item-1 {
+        color: #930A0C !important;
+        background: transparent;
+    }
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  /* rtl:remove */
+  letter-spacing: -.05rem;
+}
+
+
+  .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+</style>
+
+
+
+<div class="container-help" style="align:middle;">
+    <div class="container" style="align:middle;">
+    {% if posts %}
+		<div class="text-center">
+			<h1>Latest News</h1>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+    {% else %}
+     <div class="container my_Row">
+		<div class="text-center">
+			<h4 class="mb-3 text-center">There is no feeds!</h4>
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%">
+		</div>
+        <div class="row text-center">
+            <div class="col-md-2">
+            </div>
+			<div class="col-md-8 text-center">
+            {% if user.is_admin %}        
+					   
+              
+              <h6>Come back later or add news since you are have admin priviledges</h6>
+                <a class="btn myCustomButton" href="{% url 'admin:index' %}">Add News</a>
+
+              {% else %}
+               <h6>Come back later</h6>
+              {% endif %}
+					 
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>	
+	</div>
+  {% endif %}
+      <div class="row ">
+            {% for post in posts %}
+            <a href="{% url 'post-detail' post.id %}">
+                <div class="col-md-3 course">
+                    <img src="{{post.thumbnail.url}}" class="myThumbnail" alt="{{post.title}}">
+                    <h3 class="title-course">{{post.title|truncatewords:"4"}}</h3>
+                    <p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-full checked "></span>
+                    ({{post.date_posted|date:"j N Y"}})
+                    <p>
+                    <p class="title-author">{{post.author.first_name}} {{post.author.last_name}}</p>
+              </div>
+              </a>
+            {% endfor %}
+
+               
+		</div>
+    <div class="row text-center ">
+                <nav aria-label="...">
+                  <ul class="pagination pagination-lg">
+                      {% if page_obj.has_previous %}
+                            
+                            
+
+
+                        <li class="page-item" aria-current="page">
+                            <a style="color:#930A0C !important; href="?page=1">
+                              <span  style="color:#930A0C !important; class="page-link"> 1</span>
+                            </a>
+                            </li>
+                            <li class="page-item " aria-current="page">
+                            <a style="color:#930A0C !important; " href="?page={{ page_obj.previous_page_number }}">&laquo; </a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item " aria-current="page">
+                        <span class="current">
+                            {{ page_obj.number }}
+                        </span>
+                        </li>
+
+                        
+                        {% if page_obj.has_next %}
+                        <li class="page-item " aria-current="page">
+                            <a class="page-link" style="color:#930A0C !important; " href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        </li>
+                        <li class="page-item " aria-current="page">
+                            <a  class="page-link" style="color:#930A0C !important; " href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }} </a>
+                        </li>
+                        {% endif %}
+                  
+                   
+                  </ul>
+              </nav>
+        
+
+    </div>
+    
+    
+</div>
+
+    
+  
+ 
+
+ 
+
+
+
+
+
+{% endblock content %}

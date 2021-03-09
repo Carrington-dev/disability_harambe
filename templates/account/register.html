@@ -1,0 +1,225 @@
+{% load static %}
+
+
+
+
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 form-block px-4">
+				<div class="col-lg-8 col-md-6 col-sm-8 col-xs-12 form-box">
+					<div class="text-center mb-3 mt-5">
+						<a href="{% url 'home' %}"><img src="{% static 'images/ada_logo.png' %}" width="150px"></a>
+					</div>
+					<h4 class="text-center mb-4">
+						Create an account
+					</h4>
+					<form method="post">{% csrf_token %}
+						<div class="form-input">
+							<span><i class="fa fa-user-o"></i></span>
+							<input type="text" name="username" placeholder="Full Name" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-envelope-o"></i></span>
+							<input type="email" name="email" placeholder="Email Address" tabindex="10"required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-key"></i></span>
+							<input type="password" name="password1" placeholder="Password" required>
+						</div>
+
+						<div class="form-input">
+							<span><i class="fa fa-key"></i></span>
+							<input type="password" name="password2" placeholder="Confirm Password" required>
+						</div>
+
+
+													
+							{% for field in registration_form %}
+
+
+							
+									{% for error in field.errors %}
+
+
+										
+									<div class="text-center mb-3" id="error" style="color: red">
+										{{ error }}
+									</div>
+
+									{% endfor %}
+								
+							{% endfor %}
+							{% if registration_form.non_field_errors %}
+							
+								
+									<div class="text-center mb-3" id="error" style="color: red">
+										{{registration_form.non_field_errors}}
+									</div>
+							
+								
+							{% endif %}
+							
+							
+						{% comment %} <div class="mb-3 d-flex align-items-center">
+							<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="cb1"> 
+								<label class="custom-control-label" for="cb1">I agree all terms & conditions</label>
+								<label class="custom-control-label" for="cb1">I agree all terms & conditions</label>
+
+							</div>
+						</div> {% endcomment %}
+
+						<div class="mb-3"> 
+							<button type="submit" class="btn btn-block">
+								Register
+							</button>
+						</div>
+
+						<div class="text-center mb-3">
+							or register with
+						</div>
+							
+						<div class="row mb-3">
+							<div class="col-4">
+								<a href="" class="btn btn-block btn-social btn-facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</div>
+
+							<div class="col-4">
+								<a href="" class="btn btn-block btn-social btn-google">
+									<i class="fa fa-google"></i>
+								</a>
+							</div>
+							
+							<div class="col-4">
+								<a href="" class="btn btn-block btn-social btn-twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</div>
+						</div>
+							
+						<div class="text-center mb-5">
+							Already have an account 
+							<a class="login-link" href="{% url 'login' %}">Login here</a>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-lg-6 d-none d-lg-block image-container"></div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+    setTimeout(function(){
+		if($('#error').length > 0){
+			$('#error').remove();
+		}
+	}, 3000)
+
+
+	 setTimeout2(function(){
+		if($('#error1').length > 0){
+			$('#error1').remove();
+		}
+	}, 3000)
+</script>
+
+
+{% comment %} 
+
+
+
+<style type="text/css">
+  .form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .h3{
+    text-align: center;
+  }
+
+</style>
+
+
+
+<form class="form-signin" method="post">{% csrf_token %}
+  <div class="d-flex flex-column pb-3">
+    <img class="img-fluid mx-auto d-block" src="{% static 'images/ada_logo.png' %}" alt="Codignwithmitch logo image" width="72" height="72">
+  </div>
+  <h1 class="h3 mb-3 font-weight-normal">Register an account</h1>
+
+  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+  <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
+  
+  <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Password" required>
+
+  <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm password" required>
+
+  {% for field in registration_form %}
+      <p>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+  {% endfor %}
+  {% if registration_form.non_field_errors %}
+    <div style="color: red">
+      <p>{{registration_form.non_field_errors}}</p>
+    </div>
+      
+  {% endif %}
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+</form>  
+
+
+
+ {% endcomment %}

@@ -1,0 +1,63 @@
+{% load static %}
+<style>
+</style>
+
+					
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="{% url 'home' %}" title="Financial Planning Bootstrap Theme">
+                <img class="logo" src="{% static 'images/ada_logo.png' %}" alt="Financial Planning Bootstrap Theme" width="50px" style="margin-top:15px; margin-left:20px;" />
+            </a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+			  	{% if request.user.is_authenticated %}
+
+					<li><a href="{% url 'home' %}" >HOME</a></li>
+					<li><a href="{% url 'about' %}">ABOUT</a></li>
+					<li><a href="{% url 'covid_19' %}">COVID-19</a></li>
+					<li><a href="{% url 'benefits' %}">ICT USAGE</a></li>
+					<li><a href="{% url 'profile' %}" >PROFILE</a></li>
+					<li><a href="{% url 'surveys' %}">SURVEYS</a></li>				
+					<li><a href="{% url 'posts' %}">NEWS</a></li>
+					<li><a href="{% url 'courses' %}">COURSES</a></li>
+					<li><a href="{% url 'contact' %}">CONTACT</a></li>
+					<li><a href="{% url 'logout' %}">SIGN OUT</a></li>
+					<li><a href="https://www.paypal.com/donate?hosted_button_id=2CK4YCLFVD8D6">DONATE</a></li>
+					
+					
+					
+				{% else %}
+
+						<li><a href="{% url 'home' %}" >HOME</a></li>
+						<li><a href="{% url 'about' %}">ABOUT</a></li>
+						<li><a href="{% url 'covid_19' %}">COVID-19</a></li>
+						<li><a href="{% url 'benefits' %}">ICT USAGE</a></li>
+						<li><a href="{% url 'posts' %}">NEWS</a></li>
+						 {% comment %} <li><a href="{% url 'profile' %}" >PROFILE</a></li> {% endcomment %}
+						<li><a href="{% url 'surveys' %}">SURVEYS</a></li>
+						<li><a href="{% url 'courses' %}">COURSES</a></li>	 
+						<li><a href="{% url 'register' %}">SIGN UP</a></li>
+						<li><a href="{% url 'login' %}">SIGN IN</a></li>
+						<li><a href="{% url 'contact' %}">CONTACT</a></li>
+						<li><a href="https://www.paypal.com/donate?hosted_button_id=2CK4YCLFVD8D6">DONATE</a></li> 
+						
+				
+
+
+					{% endif %}
+				
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

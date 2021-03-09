@@ -1,0 +1,433 @@
+<div class="container-planning">
+    <div class="container">
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Page Heading
+          <small>Secondary Text</small>
+        </h1>
+
+        
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% url 'post.thumbnail.url' %}" alt="{{post.title}}">
+          <div class="card-body">
+            <h2 class="card-title">{{post.title}}</h2>
+            <p class="card-text">
+                {{post.content}}
+            </p>
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            {{post.date_posted|date:"Y N j"}}
+            <a href="#">{{post.author.name}}</a>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+     
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+    </div> <!--container-->
+</div> <!--container-planning -->
+
+
+
+
+
+
+
+{% comment %} 
+               
+<div id="div_id_full_name" class="form-group"> <label for="id_full_name" class=" requiredField">
+                Unique identifier for the student<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="full_name" class="form-control textinput textInput form-control" autofocus maxlength="50" required id="id_full_name"> </div> </div> <div id="div_id_gender" class="form-group"> <label for="id_gender_0" class=" requiredField">
+                Gender<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="gender" id="id_gender_1" value="male"   class="form-select form-select-lg mb-3"> <label for="id_gender_1" class="form-check-label">
+            male
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="gender" id="id_gender_2" value="female"   class="form-select form-select-lg mb-3"> <label for="id_gender_2" class="form-check-label">
+            female
+        </label> </div> </div> </div> <div id="div_id_country" class="form-group"> <label for="id_country" class=" requiredField">
+                Country<span class="asteriskField">*</span> </label> <div class=""> <select name="country" class="lazyselect form-control" id="id_country"> <option value="AF">Afghanistan</option> <option value="AX">Åland Islands</option> <option value="AL">Albania</option> <option value="DZ">Algeria</option> <option value="AS">American Samoa</option> <option value="AD">Andorra</option> <option value="AO">Angola</option> <option value="AI">Anguilla</option> <option value="AQ">Antarctica</option> <option value="AG">Antigua and Barbuda</option> <option value="AR">Argentina</option> <option value="AM">Armenia</option> <option value="AW">Aruba</option> <option value="AU">Australia</option> <option value="AT">Austria</option> <option value="AZ">Azerbaijan</option> <option value="BS">Bahamas</option> <option value="BH">Bahrain</option> <option value="BD">Bangladesh</option> <option value="BB">Barbados</option> <option value="BY">Belarus</option> <option value="BE">Belgium</option> <option value="BZ">Belize</option> <option value="BJ">Benin</option> <option value="BM">Bermuda</option> <option value="BT">Bhutan</option> <option value="BO">Bolivia</option> <option value="BQ">Bonaire, Sint Eustatius and Saba</option> <option value="BA">Bosnia and Herzegovina</option> <option value="BW">Botswana</option> <option value="BV">Bouvet Island</option> <option value="BR">Brazil</option> <option value="IO">British Indian Ocean Territory</option> <option value="BN">Brunei</option> <option value="BG">Bulgaria</option> <option value="BF">Burkina Faso</option> <option value="BI">Burundi</option> <option value="CV">Cabo Verde</option> <option value="KH">Cambodia</option> <option value="CM">Cameroon</option> <option value="CA">Canada</option> <option value="KY">Cayman Islands</option> <option value="CF">Central African Republic</option> <option value="TD">Chad</option> <option value="CL">Chile</option> <option value="CN">China</option> <option value="CX">Christmas Island</option> <option value="CC">Cocos (Keeling) Islands</option> <option value="CO">Colombia</option> <option value="KM">Comoros</option> <option value="CG">Congo</option> <option value="CD">Congo (the Democratic Republic of the)</option> <option value="CK">Cook Islands</option> <option value="CR">Costa Rica</option> <option value="CI">Côte d&#39;Ivoire</option> <option value="HR">Croatia</option> <option value="CU">Cuba</option> <option value="CW">Curaçao</option> <option value="CY">Cyprus</option> <option value="CZ">Czechia</option> <option value="DK">Denmark</option> <option value="DJ">Djibouti</option> <option value="DM">Dominica</option> <option value="DO">Dominican Republic</option> <option value="EC">Ecuador</option> <option value="EG">Egypt</option> <option value="SV">El Salvador</option> <option value="GQ">Equatorial Guinea</option> <option value="ER">Eritrea</option> <option value="EE">Estonia</option> <option value="SZ">Eswatini</option> <option value="ET">Ethiopia</option> <option value="FK">Falkland Islands (Malvinas)</option> <option value="FO">Faroe Islands</option> <option value="FJ">Fiji</option> <option value="FI">Finland</option> <option value="FR">France</option> <option value="GF">French Guiana</option> <option value="PF">French Polynesia</option> <option value="TF">French Southern Territories</option> <option value="GA">Gabon</option> <option value="GM">Gambia</option> <option value="GE">Georgia</option> <option value="DE">Germany</option> <option value="GH">Ghana</option> <option value="GI">Gibraltar</option> <option value="GR">Greece</option> <option value="GL">Greenland</option> <option value="GD">Grenada</option> <option value="GP">Guadeloupe</option> <option value="GU">Guam</option> <option value="GT">Guatemala</option> <option value="GG">Guernsey</option> <option value="GN">Guinea</option> <option value="GW">Guinea-Bissau</option> <option value="GY">Guyana</option> <option value="HT">Haiti</option> <option value="HM">Heard Island and McDonald Islands</option> <option value="VA">Holy See</option> <option value="HN">Honduras</option> <option value="HK">Hong Kong</option> <option value="HU">Hungary</option> <option value="IS">Iceland</option> <option value="IN">India</option> <option value="ID">Indonesia</option> <option value="IR">Iran</option> <option value="IQ">Iraq</option> <option value="IE">Ireland</option> <option value="IM">Isle of Man</option> <option value="IL">Israel</option> <option value="IT">Italy</option> <option value="JM">Jamaica</option> <option value="JP">Japan</option> <option value="JE">Jersey</option> <option value="JO">Jordan</option> <option value="KZ">Kazakhstan</option> <option value="KE">Kenya</option> <option value="KI">Kiribati</option> <option value="KW">Kuwait</option> <option value="KG">Kyrgyzstan</option> <option value="LA">Laos</option> <option value="LV">Latvia</option> <option value="LB">Lebanon</option> <option value="LS">Lesotho</option> <option value="LR">Liberia</option> <option value="LY">Libya</option> <option value="LI">Liechtenstein</option> <option value="LT">Lithuania</option> <option value="LU">Luxembourg</option> <option value="MO">Macao</option> <option value="MG">Madagascar</option> <option value="MW">Malawi</option> <option value="MY">Malaysia</option> <option value="MV">Maldives</option> <option value="ML">Mali</option> <option value="MT">Malta</option> <option value="MH">Marshall Islands</option> <option value="MQ">Martinique</option> <option value="MR">Mauritania</option> <option value="MU">Mauritius</option> <option value="YT">Mayotte</option> <option value="MX">Mexico</option> <option value="FM">Micronesia (Federated States of)</option> <option value="MD">Moldova</option> <option value="MC">Monaco</option> <option value="MN">Mongolia</option> <option value="ME">Montenegro</option> <option value="MS">Montserrat</option> <option value="MA">Morocco</option> <option value="MZ">Mozambique</option> <option value="MM">Myanmar</option> <option value="NA">Namibia</option> <option value="NR">Nauru</option> <option value="NP">Nepal</option> <option value="NL">Netherlands</option> <option value="NC">New Caledonia</option> <option value="NZ">New Zealand</option> <option value="NI">Nicaragua</option> <option value="NE">Niger</option> <option value="NG">Nigeria</option> <option value="NU">Niue</option> <option value="NF">Norfolk Island</option> <option value="KP">North Korea</option> <option value="MK">North Macedonia</option> <option value="MP">Northern Mariana Islands</option> <option value="NO">Norway</option> <option value="OM">Oman</option> <option value="PK">Pakistan</option> <option value="PW">Palau</option> <option value="PS">Palestine, State of</option> <option value="PA">Panama</option> <option value="PG">Papua New Guinea</option> <option value="PY">Paraguay</option> <option value="PE">Peru</option> <option value="PH">Philippines</option> <option value="PN">Pitcairn</option> <option value="PL">Poland</option> <option value="PT">Portugal</option> <option value="PR">Puerto Rico</option> <option value="QA">Qatar</option> <option value="RE">Réunion</option> <option value="RO">Romania</option> <option value="RU">Russia</option> <option value="RW">Rwanda</option> <option value="BL">Saint Barthélemy</option> <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option> <option value="KN">Saint Kitts and Nevis</option> <option value="LC">Saint Lucia</option> <option value="MF">Saint Martin (French part)</option> <option value="PM">Saint Pierre and Miquelon</option> <option value="VC">Saint Vincent and the Grenadines</option> <option value="WS">Samoa</option> <option value="SM">San Marino</option> <option value="ST">Sao Tome and Principe</option> <option value="SA">Saudi Arabia</option> <option value="SN">Senegal</option> <option value="RS">Serbia</option> <option value="SC">Seychelles</option> <option value="SL">Sierra Leone</option> <option value="SG">Singapore</option> <option value="SX">Sint Maarten (Dutch part)</option> <option value="SK">Slovakia</option> <option value="SI">Slovenia</option> <option value="SB">Solomon Islands</option> <option value="SO">Somalia</option> <option value="ZA">South Africa</option> <option value="GS">South Georgia and the South Sandwich Islands</option> <option value="KR">South Korea</option> <option value="SS">South Sudan</option> <option value="ES">Spain</option> <option value="LK">Sri Lanka</option> <option value="SD">Sudan</option> <option value="SR">Suriname</option> <option value="SJ">Svalbard and Jan Mayen</option> <option value="SE">Sweden</option> <option value="CH">Switzerland</option> <option value="SY">Syria</option> <option value="TW">Taiwan</option> <option value="TJ">Tajikistan</option> <option value="TZ">Tanzania</option> <option value="TH">Thailand</option> <option value="TL">Timor-Leste</option> <option value="TG">Togo</option> <option value="TK">Tokelau</option> <option value="TO">Tonga</option> <option value="TT">Trinidad and Tobago</option> <option value="TN">Tunisia</option> <option value="TR">Turkey</option> <option value="TM">Turkmenistan</option> <option value="TC">Turks and Caicos Islands</option> <option value="TV">Tuvalu</option> <option value="UG">Uganda</option> <option value="UA">Ukraine</option> <option value="AE">United Arab Emirates</option> <option value="GB">United Kingdom</option> <option value="UM">United States Minor Outlying Islands</option> <option value="US">United States of America</option> <option value="UY">Uruguay</option> <option value="UZ">Uzbekistan</option> <option value="VU">Vanuatu</option> <option value="VE">Venezuela</option> <option value="VN">Vietnam</option> <option value="VG">Virgin Islands (British)</option> <option value="VI">Virgin Islands (U.S.)</option> <option value="WF">Wallis and Futuna</option> <option value="EH">Western Sahara</option> <option value="YE">Yemen</option> <option value="ZM">Zambia</option> <option value="ZW">Zimbabwe</option>
+
+</select> </div> </div> <div id="div_id_age" class="form-group"> <label for="id_age_0" class=" requiredField">
+                Age<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_1" value="15-19"   class="form-select form-select-lg mb-3"> <label for="id_age_1" class="form-check-label">
+            15-19
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_2" value="20-24"   class="form-select form-select-lg mb-3"> <label for="id_age_2" class="form-check-label">
+            20-24
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_3" value="25-29"   class="form-select form-select-lg mb-3"> <label for="id_age_3" class="form-check-label">
+            25-29
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_4" value="30-34"   class="form-select form-select-lg mb-3"> <label for="id_age_4" class="form-check-label">
+            30-34
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_5" value="35-39"   class="form-select form-select-lg mb-3"> <label for="id_age_5" class="form-check-label">
+            35-39
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_6" value="40-44"   class="form-select form-select-lg mb-3"> <label for="id_age_6" class="form-check-label">
+            40-44
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_7" value="45-49"   class="form-select form-select-lg mb-3"> <label for="id_age_7" class="form-check-label">
+            45-49
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_8" value="50-54"   class="form-select form-select-lg mb-3"> <label for="id_age_8" class="form-check-label">
+            50-54
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_9" value="55-59"   class="form-select form-select-lg mb-3"> <label for="id_age_9" class="form-check-label">
+            55-59
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_10" value="60-64"   class="form-select form-select-lg mb-3"> <label for="id_age_10" class="form-check-label">
+            60-64
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_11" value="65-69"   class="form-select form-select-lg mb-3"> <label for="id_age_11" class="form-check-label">
+            65-69
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_12" value="70-74"   class="form-select form-select-lg mb-3"> <label for="id_age_12" class="form-check-label">
+            70-74
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_13" value="75-79"   class="form-select form-select-lg mb-3"> <label for="id_age_13" class="form-check-label">
+            75-79
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_14" value="85-89"   class="form-select form-select-lg mb-3"> <label for="id_age_14" class="form-check-label">
+            85-89
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="age" id="id_age_15" value="95-99"   class="form-select form-select-lg mb-3"> <label for="id_age_15" class="form-check-label">
+            95-99
+        </label> </div> </div> </div> <div id="div_id_question_1" class="form-group"> <label for="id_question_1_0" class=" requiredField">
+                1. Access to essentials (food, shelter, medicines and other essentials) by people with disabilities has been hampered a lot during the pandemic<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_1" id="id_question_1_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_1_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_1" id="id_question_1_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_1_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_1" id="id_question_1_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_1_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_1" id="id_question_1_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_1_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_1" id="id_question_1_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_1_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_2" class="form-group"> <label for="id_question_2_0" class=" requiredField">
+                2. There has been equitable accessibility to ventilators by people with disabilities during COVID19 related sickness.<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_2" id="id_question_2_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_2_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_2" id="id_question_2_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_2_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_2" id="id_question_2_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_2_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_2" id="id_question_2_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_2_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_2" id="id_question_2_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_2_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_3" class="form-group"> <label for="id_question_3_0" class=" requiredField">
+                3. The price of medicines and other treatments has soared, and treatment for chronic and longterm health conditions has become difficult for people with disabilities during the period of the COVID-19 pandemic<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_3" id="id_question_3_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_3_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_3" id="id_question_3_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_3_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_3" id="id_question_3_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_3_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_3" id="id_question_3_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_3_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_3" id="id_question_3_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_3_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_4" class="form-group"> <label for="id_question_4_0" class=" requiredField">
+                4. Gender-based violence against women and girls with disabilities including rape, sexual assault, and harassment at the hands of enforcement authorities or family members rose during the pandemic periods?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_4" id="id_question_4_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_4_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_4" id="id_question_4_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_4_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_4" id="id_question_4_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_4_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_4" id="id_question_4_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_4_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_4" id="id_question_4_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_4_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_5" class="form-group"> <label for="id_question_5_0" class=" requiredField">
+                5. People with disabilities in rural and remote settings have suffered both through the lack of availability of essential supplies and services, as well as the inability to access information during the time of the COVID-19 pandemic<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_5" id="id_question_5_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_5_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_5" id="id_question_5_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_5_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_5" id="id_question_5_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_5_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_5" id="id_question_5_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_5_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_5" id="id_question_5_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_5_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_6" class="form-group"> <label for="id_question_6_0" class=" requiredField">
+                6. COVID response measures have seen the exclusion of already marginalised population groups that include women, older persons and children with disabilities.<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_6" id="id_question_6_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_6_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_6" id="id_question_6_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_6_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_6" id="id_question_6_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_6_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_6" id="id_question_6_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_6_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_6" id="id_question_6_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_6_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_7" class="form-group"> <label for="id_question_7_0" class=" requiredField">
+                7. The behaviour of others (for example failure to socially distance) has jeopardised the lives of people with disabilities during the COVID-19 pandemic?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_7" id="id_question_7_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_7_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_7" id="id_question_7_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_7_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_7" id="id_question_7_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_7_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_7" id="id_question_7_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_7_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_7" id="id_question_7_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_7_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_8" class="form-group"> <label for="id_question_8_0" class=" requiredField">
+                8. Organizations have helped in establishing conducive “work from home” environments for people with disabilities<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_8" id="id_question_8_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_8_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_8" id="id_question_8_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_8_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_8" id="id_question_8_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_8_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_8" id="id_question_8_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_8_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_8" id="id_question_8_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_8_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_9" class="form-group"> <label for="id_question_9_0" class=" requiredField">
+                9. People with disabilities have faced restriction or denial of basic and emergency healthcare, including for those who have contracted COVID-19<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_9" id="id_question_9_1" value="strongly_disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_9_1" class="form-check-label">
+            Strongly disagree 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_9" id="id_question_9_2" value="Disagree"   class="form-select form-select-lg mb-3"> <label for="id_question_9_2" class="form-check-label">
+            Disagree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_9" id="id_question_9_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_9_3" class="form-check-label">
+            Neutral
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_9" id="id_question_9_4" value="agree"   class="form-select form-select-lg mb-3"> <label for="id_question_9_4" class="form-check-label">
+            Agree
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_9" id="id_question_9_5" value="strongly agree"   class="form-select form-select-lg mb-3"> <label for="id_question_9_5" class="form-check-label">
+            Strongly agree
+        </label> </div> </div> </div> <div id="div_id_question_10" class="form-group"> <label for="id_question_10_0" class=" requiredField">
+                10. In your opinion, have government officials consulted with or involved persons with disabilities in the formulation of COVID19 response mechanisms in your country?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_10" id="id_question_10_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_10_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_10" id="id_question_10_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_10_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_10" id="id_question_10_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_10_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_11" class="form-group"> <label for="id_question_11_0" class=" requiredField">
+                11. Have your rights to health and life been violated through government enforced lockdowns and other COVID-19 responses?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_11" id="id_question_11_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_11_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_11" id="id_question_11_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_11_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_11" id="id_question_11_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_11_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_12" class="form-group"> <label for="id_question_12_0" class=" requiredField">
+                12. Do you feel you have been abused or you know a person with disability who has been ill-treated or exploited by persons (and even by systems) involved in enforcing the COVID-19 response measures?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_12" id="id_question_12_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_12_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_12" id="id_question_12_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_12_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_12" id="id_question_12_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_12_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_13" class="form-group"> <label for="id_question_13_0" class=" requiredField">
+                13. Do you think the enforced periods of isolation had a severe impact on the mental health of people with disabilities in your country?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_13" id="id_question_13_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_13_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_13" id="id_question_13_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_13_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_13" id="id_question_13_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_13_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_15" class="form-group"> <label for="id_question_15_0" class=" requiredField">
+                15. Do you think adequate support was offered to families with disabled persons by government during the outbreak of the pandemic<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_15" id="id_question_15_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_15_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_15" id="id_question_15_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_15_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_15" id="id_question_15_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_15_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_16" class="form-group"> <label for="id_question_16_0" class=" requiredField">
+                16. During the outbreak of the pandemic, innovative online teaching environments were setup for children and young people. Did the measures in your area cater for children and young people with disabilities?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_16" id="id_question_16_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_16_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_16" id="id_question_16_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_16_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_16" id="id_question_16_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_16_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_17" class="form-group"> <label for="id_question_17_0" class=" requiredField">
+                17. Did children and young people with disabilities have access to these online learning platforms?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_17" id="id_question_17_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_17_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_17" id="id_question_17_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_17_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_17" id="id_question_17_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_17_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_18" class="form-group"> <label for="id_question_18_0" class=" requiredField">
+                18. Institutional admissions have gone up during the pandemic. <span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_18" id="id_question_18_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_18_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_18" id="id_question_18_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_18_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_18" id="id_question_18_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_18_3" class="form-check-label">
+            Neutral 
+        </label> </div> </div> </div> <div id="div_id_question_19" class="form-group"> <label for="id_question_19_0" class=" requiredField">
+                19. There is need for disability-awareness training for police and law enforcement authorities, and accountability for disproportionate enforcement of public health-related restrictions. <span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_19" id="id_question_19_1" value="no"   class="form-select form-select-lg mb-3"> <label for="id_question_19_1" class="form-check-label">
+             No 
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_19" id="id_question_19_2" value="yes"   class="form-select form-select-lg mb-3"> <label for="id_question_19_2" class="form-check-label">
+            Yes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_19" id="id_question_19_3" value="Neutral"   class="form-select form-select-lg mb-3"> <label for="id_question_19_3" class="form-check-label">
+            Neutral 
+        </label>
+         </div> 
+         </div>
+          </div>
+           <div id="div_id_question_20" class="form-group"> <label for="id_question_20" class=" requiredField">
+           
+                20. Information to people with disabilities can be provided in various ways. Which of the following ways have been used to disseminate information to people with disabilities in your country? (You may select more than 1)<span class="asteriskField">*</span> </label> 
+                <div class="" id="input_20">
+                <input type="text" name="question_20" maxlength="400" class="textinput textInput form-control" required id="id_question_20">
+                <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_1" onclick="getInputValue(); value="Sign Language"   class="form-select form-select-lg mb-3"> <label for="id_question_20_1" class="form-check-label">
+                Sign Language
+                </label>
+                </div>
+                 <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_2" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_2" class="form-check-label">
+                Easy Read or Plain Language
+                </label>
+                </div>
+                <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_3" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_3" class="form-check-label">
+                Audio formats
+                </label>
+                </div>
+                 <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_4" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_4" class="form-check-label">
+                multiple languages
+                </label>
+                </div> 
+                <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_5" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_5" class="form-check-label">
+                Websites are accessible for screen reader users
+                </label>
+                </div>
+                 <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_6" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_6" class="form-check-label">
+                Captioning services
+                </label>
+                </div> 
+                <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_7" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_7" class="form-check-label">
+                No information has been provided in any format
+                </label>
+                </div>
+                 <div class="form-check"> <input type="checkbox" class="form-check-input" name="question_20" id="id_question_20_8" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_20_8" class="form-check-label">
+                Other (please specify)
+                </label>
+                </div> 
+
+
+                </div> </div> 
+                
+
+                
+                <div id="div_id_question_21" class="form-group"> 
+                <label for="id_question_21_0" class=" requiredField">
+                21. Do you think adequate support was offered to families with disabled persons by government during the outbreak of the pandemic<span class="asteriskField">*</span> </label> <div class=""> 
+                <div class="form-check"> <input type="radio" class="form-check-input" name="question_21" id="id_question_21_1" value="Not at all"   class="form-select form-select-lg mb-3"> <label for="id_question_21_1" class="form-check-label">
+            Not at all
+        </label>
+         </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_21" id="id_question_21_2" value="Little support was given"   class="form-select form-select-lg mb-3"> <label for="id_question_21_2" class="form-check-label">
+            Little support was given
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_21" id="id_question_21_3" value="Adequate support was given"   class="form-select form-select-lg mb-3"> <label for="id_question_21_3" class="form-check-label">
+            Adequate support was given
+        </label> </div> </div> </div> <div id="div_id_question_22" class="form-group"> <label for="id_question_22_0" class=" requiredField">
+                22. Do you at times find yourself in settings where you cannot socially distance for example group quarantine shelters?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_22" id="id_question_22_1" value="Not at all"   class="form-select form-select-lg mb-3"> <label for="id_question_22_1" class="form-check-label">
+            Not at all
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_22" id="id_question_22_2" value="Sometimes"   class="form-select form-select-lg mb-3"> <label for="id_question_22_2" class="form-check-label">
+            Sometimes
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_22" id="id_question_22_3" value="All the time"   class="form-select form-select-lg mb-3"> <label for="id_question_22_3" class="form-check-label">
+            All the time
+        </label> </div> </div> </div> <div id="div_id_question_23" class="form-group"> <label for="id_question_23_0" class=" requiredField">
+                23. . People with disabilities have telephone numbers to telehealth services and emergency services that are critical during the time of the pandemic and beyond. Is this in your opinion true or false?<span class="asteriskField">*</span> </label> <div class=""> <div class="form-check"> <input type="radio" class="form-check-input" name="question_23" id="id_question_23_1" value="True"   class="form-select form-select-lg mb-3"> <label for="id_question_23_1" class="form-check-label">
+            True
+        </label> </div> <div class="form-check"> <input type="radio" class="form-check-input" name="question_23" id="id_question_23_2" value="False"   class="form-select form-select-lg mb-3"> <label for="id_question_23_2" class="form-check-label">
+            False
+        </label> </div> </div> </div>
+
+                {% for field in form %}
+							<p>
+								{% for error in field.errors %}
+									<div class="text-center mb-3" id="error" style="color: red">
+										{{ error }}
+									</div>
+								{% endfor %}
+							</p>
+						{% endfor %}
+						{% if form.non_field_errors  %}
+							<div class="text-center mb-3" id="error" style="color: red">
+								{{ form.non_field_errors }}
+                                
+							</div>
+						{% endif %}
+            
+                
+                <div class="my-row">
+                    <button type="submit" class="btn btn-primary  app-button  myCustomButton">Submit</button>
+                    <a  href="{% url 'survey-dd' %}" class="btn btn-primary app-button" id="RefreshButton">Refresh</a>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+  </div>
+  <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            document.getElementById("id_question_20").value = "My Value";
+            var inputVal = document.getElementById("id_question_20").value;
+
+            
+            // Displaying the value
+            alert(inputVal);
+        }
+    </script>
+
+
+ {% endcomment %}

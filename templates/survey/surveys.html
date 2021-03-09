@@ -1,0 +1,80 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+		
+		.myCustomButton{
+			background-color:#930A0C;
+			text-align: left;
+			padding: 10px;
+			color:#fff;
+			width: 100%;
+			display: block;
+			border-radius: 10px;
+			text-align: center;
+            margin-bottom: 20px;
+			text-transform: uppercase;
+		}
+
+		.myCustomButton:hover, active{
+			background-color:#bf0d10;
+			text-align: left;
+			padding: 10px;
+			width: 100%;
+			display: block;
+			text-align: center;
+			color:#fff;
+            
+			border-radius: 10px;
+		}
+		.col-md-6{
+            margin-bottom: 20px;
+        }
+		
+		</style>
+
+
+<div class="container-testimonials">
+    <div class="container">
+
+        <div>
+			<h1 class="text-center">Your Questionaires</h1>
+	
+			<hr style="border-color:#930A0C; border-width: 2px" width="10%"> <br />
+	
+			<div class="col-md-6">
+				<div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="{% static 'images/covid-19.jpg' %}"  alt="Admin" height="300px"  width="100%" >
+                    <div class="mt-3">
+                      <h4>1.	Main stakeholders (for persons with disability, representatives or relatives of persons with disability)</h4>
+                        <p class=" text-center">
+                             Research meets ethical standards and all information from participants is solely used for the purposes of this research and is kept confidential
+                        </p>
+                      <a href="{% url 'survey-dd' %}" class="btn myCustomButton" >Take A Survey</a>
+                    
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+				
+			</div>
+			<div class="col-md-6">
+				<img src="{% static 'images/green_wh.png' %}"  alt="Admin" width="100%" height="300px" > <br />
+				<h4 class="text-success text-center">2.	Other stakeholders (government representatives, institutional representatives, care givers and other relevant stakeholders</h4>
+				<p class=" text-center">
+				  Research meets ethical standards and all information from participants is solely used for the purposes of this research and is kept confidential
+				</p>
+                <a href="{% url 'survey-sh' %}" class="btn myCustomButton" >Take A Survey</a>
+				
+			</div>
+           
+		</div>
+    </div>
+</div>
+
+
+
+{% endblock content %}  
